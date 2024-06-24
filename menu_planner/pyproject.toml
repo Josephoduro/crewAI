@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "menu_planner"
+version = "0.1.0"
+description = "menu-planner using crewAI"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = "^0.32.2" }
+langchain-groq = "^0.1.5"
+agentops = "^0.2.3"
+
+[tool.poetry.scripts]
+menu_planner = "menu_planner.main:run"
+train = "menu_planner.main:train"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

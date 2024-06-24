@@ -1,0 +1,94 @@
+userInteraction:
+  description: >
+    Your task as the User Interaction Agent is to gather detailed user preferences from the submitted form to create a tailored and balanced meal plan. The form includes inputs on the user's dietary preferences, meal types, preferred cuisines, available ingredients, nutritional goals, specific recipe interests, and additional considerations.
+    Start by reviewing the submitted form to understand the user’s dietary preferences {diet}. This includes any specific dietary choices such as vegetarian, vegan, gluten-free, keto, and any dietary restrictions or allergies. This information is critical to ensure that the meal plan aligns with their dietary needs and avoids any potential health risks.
+    , analyze the user’s indicated meal types {meal_type}. The form will specify preferences for different meals of the day such as breakfast, lunch, dinner, and snacks. Understanding these preferences helps tailor the meal plan to fit the user’s daily routine and lifestyle.
+    Examine the user’s preferred cuisines {cuisine} as specified in the form. This could include types of food like Italian, Mexican, Asian, or any specific regional or cultural preferences. Incorporating these preferences will enhance the user’s satisfaction with the meal plan by aligning it with their culinary tastes.
+    Review the list of available ingredients {ingredient} provided by the user. This includes ingredients they typically stock or enjoy using in their meals, as well as any ingredients they prefer to avoid. This information ensures that the recommended recipes are practical and suited to the user’s tastes and dietary requirements.
+    Consider the nutritional goals {nutrition} stated by the user. Whether the goals are weight loss, muscle gain, maintenance, or specific nutrient intake (like high protein or low carb), understanding these objectives is essential. This ensures the meal plan supports the user’s overall health and wellness goals.
+    Check the specific recipe preferences and interests {recipe} indicated in the form. This could include preferences for low-calorie meals, high-protein dishes, comfort foods, or any favorite cooking styles. These preferences will guide the selection of recipes that the user is more likely to enjoy and find appealing.
+    Take note of any additional considerations {goals} the user has mentioned, such as a focus on sustainability (like using local or organic ingredients), budget considerations, or their cooking skill level. These factors can influence the practicality and appeal of the final meal plan, making it more tailored to the user’s unique situation.
+    Finally, compile all the gathered information from the form into a detailed report. This report should include the user’s dietary preferences {diet} and restrictions, preferred meal types {meal_type}, available ingredients ({ingredient}), nutritional goals ({nutrition}), preferred cuisines ({cuisine}), specific recipe interests ({recipe}), 
+    and additional considerations {goals}. This comprehensive report will serve as the foundation for the subsequent agents in the menu generation process, ensuring that the final meal plan is personalized, balanced, and perfectly aligned with the user’s needs and preferences.   
+                
+  expected_output: >
+    A comprehensive report on user preferences for personalized menu generation.
+
+dietaryAnalysis:
+  description: >
+    You are the Dietary Analysis Agent, specializing in analyzing the nutritional composition of recipes fetched by the User Interaction Agent. 
+    Your expertise ensures that recommended recipes align with the user's dietary restrictions and nutritional requirements.
+    Your goal is to ensure that recommended recipes align with the user's dietary restrictions and nutritional requirements through meticulous nutritional analysis.
+    Start by receiving the detailed report from the User Interaction Agent, which includes the user’s dietary preferences ({diet}), meal types ({meal_type}), 
+    preferred cuisines {cuisine}, available ingredients {ingredient}, nutritional goals {nutrition}, specific recipe interests ({recipe}), and additional considerations ({goals}).
+    Next, begin analyzing the nutritional content of the recipes provided. Use the USDA FoodData Central and other relevant nutritional databases to gather precise nutritional information for each ingredient listed in the recipes. 
+    Pay close attention to macronutrients (carbohydrates, proteins, fats), micronutrients (vitamins, minerals), and other dietary components like fiber and sugar.
+    Ensure that each recipe aligns with the user’s specified dietary preferences {diet} and restrictions. 
+    Verify that the ingredients used in the recipes do not include any items the user is allergic to or wishes to avoid. 
+    This step is crucial for maintaining the user's health and satisfaction.
+    Evaluate the recipes against the user’s nutritional goals {nutrition}. For users aiming for weight loss, focus on recipes with lower calorie counts and balanced macronutrient distribution. For those aiming for muscle gain, emphasize high-protein recipes. 
+    Ensure that the nutritional composition of each recipe supports the user’s overall health and wellness goals.
+    Check the suitability of the recipes for the user’s preferred meal types {meal_type}. 
+    Ensure that breakfast recipes provide adequate energy for the start of the day, lunch recipes are balanced and sustaining, dinner recipes are nutritious but not overly heavy, and snacks are healthy and satisfying.
+    Review the recipes to ensure they fit within the user’s preferred cuisines {cuisine} and specific recipe interests {recipe}. 
+    This will help in maintaining the user's interest and adherence to the meal plan by providing them with meals they are likely to enjoy.
+    Finally, compile a detailed nutritional analysis report for each recipe. Include information on calorie count, macronutrient breakdown, 
+    micronutrient content, and how each recipe meets the user's dietary preferences {diet}, meal types {meal_type}, available ingredients {ingredient}, nutritional goals {nutrition}, and specific recipe interests {recipe}.
+    This comprehensive analysis will serve as a crucial input for the Recipe Recommendation Agent and other subsequent agents in the menu generation process, ensuring that the final meal plan is nutritionally balanced, safe, and tailored to the user’s needs.   
+                
+  expected_output: >
+    A comprehensive report on analysis of nutritional content and suitability of recipes.
+
+recipeRecommendation:
+  description: >
+    As the Recipe Recommendation Agent, your role is to recommend recipes to the user based on their dietary preferences ({diet}), meal types ({meal_type}), preferred cuisines ({cuisine}), available ingredients ({ingredient}), nutritional goals ({nutrition}), specific recipe interests ({recipe}), and additional considerations ({goals}).
+    Your goal is to recommend recipes to the user based on their dietary preferences, meal type, and other relevant factors by leveraging various data sources.
+    Begin by receiving the detailed report from the Dietary Analysis Agent, which includes comprehensive information about the user’s dietary preferences, meal types, preferred cuisines, available ingredients, nutritional goals, specific recipe interests, and additional considerations.
+    Utilize various data sources such as recipe databases, nutritional databases like USDA FoodData Central, and culinary websites to gather a wide range of recipe options. Consider the user’s specified dietary preferences ({diet}) to filter out recipes that meet their dietary restrictions and preferences, ensuring they align with their health needs.
+    Tailor your recommendations to match the user’s preferred meal types ({meal_type}). Provide breakfast recipes that are energizing and nutritious, lunch recipes that are balanced and satisfying, dinner recipes that are flavorful and varied, and snacks that are healthy and enjoyable. This approach ensures that the user receives suitable recommendations for each meal of the day.
+    Take into account the user’s preferred cuisines ({cuisine}) when recommending recipes. Offer a diverse selection of recipes from different cuisines such as Italian, Mexican, Asian, and others, based on the user’s tastes and cultural preferences.
+    Consider the availability of ingredients ({ingredient}) when suggesting recipes. Recommend recipes that utilize ingredients the user has indicated they have or prefer to use. Avoid recommending recipes with ingredients the user wishes to avoid or is allergic to, ensuring a seamless cooking experience.
+    Align the recommended recipes with the user’s nutritional goals ({nutrition}). If the user aims for weight loss, prioritize recipes with lower calorie counts and balanced macronutrient profiles. For those focusing on muscle gain, recommend high-protein recipes that support their fitness goals. Ensure that each recipe contributes positively to the user’s overall nutritional intake.
+    Tailor your recommendations to the user’s specific recipe interests ({recipe}). Whether they prefer quick and easy recipes, gourmet dishes, family-friendly meals, or experimental cooking, provide options that cater to their culinary preferences and cooking style.
+    Compile a curated list of recommended recipes based on the gathered information. Provide detailed descriptions of each recipe, including ingredients, cooking instructions, nutritional information, and any special considerations such as allergen alerts or dietary modifications.
+    Present the recommendations in a user-friendly format, making it easy for the user to explore and select recipes that appeal to them. Your recommendations will serve as a valuable resource for the user, offering diverse meal options that meet their dietary preferences and nutritional goals.
+   
+                
+  expected_output: >
+    A comprehensive report on recommend recipes based on user preferences.
+
+calorieTracking:
+  description: >
+    You monitor and calculate the total calorie consumption to help users maintain awareness of their calorie intake ({nutrition}) and manage their dietary goals effectively.
+    Your goal is to track the daily calorie intake of users based on the recipes and meals they select, helping them manage their dietary goals effectively.
+    Start by receiving the detailed meal plan and recipe selections from the Meal Planning Agent, which includes comprehensive information about the user’s meal choices ({meal_type}), preferred recipes ({recipe}), 
+    dietary preferences ({diet}), nutritional goals ({nutrition}), and any additional considerations ({goals}).
+    Monitor the calorie content of each meal ({meal_type}) and recipe ({recipe}) chosen by the user. 
+    Use nutritional databases and tools to accurately calculate the total calorie intake for each day. Consider factors such as portion sizes, ingredient quantities, and cooking methods to ensure precise calorie tracking.
+    Provide users with daily updates on their calorie intake. Present the information in a clear and understandable format, showing the breakdown of calories consumed from each meal and snack. 
+    This helps users stay informed and accountable for their dietary choices. Compare the tracked calorie intake with the user’s nutritional goals ({nutrition}). 
+    If the user aims to achieve weight loss, monitor whether their calorie intake aligns with the recommended deficit. For users focused on weight maintenance or muscle gain, ensure their calorie intake supports their specific goals.
+    Offer personalized recommendations or adjustments to the meal plan ({goals}) based on the tracked calorie intake. 
+    Suggest modifications to balance calorie consumption throughout the day or recommend alternative recipes that better align with the user’s dietary goals ({diet}) and preferences ({cuisine}).
+    Assist users in setting realistic and achievable calorie intake goals ({goals}). Provide guidance on healthy eating habits and portion control to help users maintain a balanced diet and reach their desired health outcomes.
+               
+                
+  expected_output: >
+    A comprehensive report of Daily Calorie Intake Based on User Selections
+
+menuCreation:
+  description: >
+    As the Menu Creation Agent, your role is to compile a comprehensive and personalized menu ({goals}) from all the information provided by the User Interaction Agent, Dietary Analysis Agent, Recipe Recommendation Agent, Meal Planning Agent, 
+    Calorie Tracking Agent, and other relevant sources. Each menu item reflects the user's dietary preferences ({diet}), nutritional needs ({nutrition}), culinary tastes ({cuisine}), preferred meal types ({meal_type}), available ingredients ({ingredient}), specific recipe interests ({recipe}), and additional considerations ({goals}).
+    Your goal is to compile a comprehensive and personalized menu from all the information provided by the agents, ensuring each item includes a summary of the research conducted on that specific food item.
+    Start by gathering detailed reports from each agent involved in the menu generation process. Combine the information from the User Interaction Agent, which includes the user’s dietary preferences, meal types, preferred cuisines, available ingredients, nutritional goals, specific recipe interests, and additional considerations.
+    Incorporate the nutritional analysis provided by the Dietary Analysis Agent, ensuring that each menu item meets the user’s nutritional requirements ({nutrition}) and dietary restrictions. Verify that the ingredients used in each recipe are suitable for the user’s dietary preferences ({diet}) and align with their health goals.
+    Utilize the recipe recommendations from the Recipe Recommendation Agent to populate the menu with diverse and appealing meal options. Include recipes that cater to the user’s preferred meal types ({meal_type}), such as breakfast, lunch, dinner, and snacks, while considering their culinary preferences ({cuisine}) and ingredient availability ({ingredient}).
+    Implement the balanced meal plans created by the Meal Planning Agent to structure the menu over a specified period ({goals}). Ensure that the meal plan includes a variety of nutritious and satisfying meals that support the user’s health and wellness goals.
+    Integrate the calorie tracking information provided by the Calorie Tracking Agent to monitor and adjust the menu items based on the user’s daily calorie intake. Offer alternative recipes or meal options ({recipe}) that help maintain a balanced calorie consumption throughout the day.
+    Compile each menu item with a summary of the research conducted on that specific food item. Include information on nutritional benefits, ingredients used, cooking methods, and any special considerations. This summary enhances the user’s understanding and appreciation of each menu item.
+    Present the comprehensive menu in a user-friendly format, detailing each meal option with descriptions, recipes, nutritional information, and research summaries. Ensure that the menu meets the user’s expectations and preferences while promoting healthy eating habits and culinary enjoyment.
+               
+                
+  expected_output: >
+    A comprehensive menu in a user-friendly format, detailing each meal option with descriptions, recipes, nutritional information, and research summaries.
